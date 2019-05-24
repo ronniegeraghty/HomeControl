@@ -9,7 +9,7 @@ export default function NavBar() {
       <div className={styles.skipLink}>
         <a href="#mainContent">Skip to Main Content</a>
       </div>
-      <nav className="navbar navbar-expand-sm navbar-light border-bottom justify-content-between">
+      <nav className="navbar sticky-top navbar-expand-sm navbar-dark justify-content-between">
         <a className="navbar-brand" href="/">
           HomeControl
         </a>
@@ -22,6 +22,12 @@ export default function NavBar() {
           </a>
           <a className="nav-item nav-link active" href="Blank2">
             Blank2
+          </a>
+          <a
+            href="https://github.com/Microsoft/WebTemplateStudio"
+            className="nav-item nav-link active"
+          >
+            Link to our Github
           </a>
         </div>
       </nav>

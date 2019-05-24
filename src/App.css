@@ -20,6 +20,12 @@ footer {
 .btn-primary {
   background-color: #025fce !important;
 }
+.navbar {
+  background-color: #41b3a3 !important;
+}
+.navbar-nav {
+  color: #498379 !important;
+}
 
 button:focus,
 button:active {
