@@ -1,36 +1,36 @@
-﻿import React from "react";
-import styles from "./navbar.module.css";
+﻿import React, { Component } from 'react';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import styles from './navbar.module.css';
 
-//TODO Web Template Studio: Add a new link in the NavBar for your page here.
-// A skip link is included as an accesibility best practice. For more information visit https://www.w3.org/WAI/WCAG21/Techniques/general/G1.
-export default function NavBar() {
-  return (
-    <React.Fragment>
-      <div className={styles.skipLink}>
-        <a href="#mainContent">Skip to Main Content</a>
-      </div>
-      <nav className="navbar sticky-top navbar-expand-sm navbar-dark justify-content-between">
-        <a className="navbar-brand" href="/">
-          HomeControl
-        </a>
-        <div className="navbar-nav">
-          <a className="nav-item nav-link active" href="Blank">
-            Blank
-          </a>
-          <a className="nav-item nav-link active" href="Grid">
-            Grid
-          </a>
-          <a className="nav-item nav-link active" href="Blank2">
-            Blank2
-          </a>
-          <a
-            href="https://github.com/Microsoft/WebTemplateStudio"
-            className="nav-item nav-link active"
-          >
-            Link to our Github
-          </a>
-        </div>
-      </nav>
-    </React.Fragment>
-  );
+class NavbarPage extends Component {
+	render() {
+		return (
+			<React.Fragment>
+				<div className={styles.skipLink}>
+					<a href="#mainContent">Skip to Main Content</a>
+				</div>
+				<Navbar collapseOnSelect expand="sm" variant="dark" className={styles.navBG}>
+					<Navbar.Brand href="Home">Home Control</Navbar.Brand>
+					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+					<Navbar.Collapse id="responsive-navbar-nav">
+						<Nav className="mr-auto" />
+						<Nav className="navbar-expand-sm">
+							<Nav.Link href="Home" active>
+								Home
+							</Nav.Link>
+							<Nav.Link href="Dashboard" active>
+								Dashboard
+							</Nav.Link>
+							<NavDropdown title="Profile" id="collasible-nav-dropdown" active>
+								<NavDropdown.Item href="#">Edit</NavDropdown.Item>
+								<NavDropdown.Item href="#">Sign In</NavDropdown.Item>
+							</NavDropdown>
+						</Nav>
+					</Navbar.Collapse>
+				</Navbar>
+			</React.Fragment>
+		);
+	}
 }
+
+export default NavbarPage;

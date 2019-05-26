@@ -1,34 +1,31 @@
 ﻿html {
-  position: relative;
-  min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 
 body {
-  margin-bottom: 160px !important; /* Height of the footer */
-  padding: 0;
+	margin-bottom: 160px !important; /* Height of the footer */
+	padding: 0;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 160px; /* Set the fixed height of the footer here */
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 160px; /* Set the fixed height of the footer here */
 }
 
 /* Override Bootstrap Styling */
 
 .btn-primary {
-  background-color: #025fce !important;
+	background-color: #025fce !important;
 }
-.navbar {
-  background-color: #41b3a3 !important;
-}
-.navbar-nav {
-  color: #498379 !important;
-}
+/* .navbar {
+	background-color: #41b3a3 !important;
+} */
 
 button:focus,
 button:active {
-  outline: none !important;
-  box-shadow: none !important;
+	outline: none !important;
+	box-shadow: none !important;
 }
