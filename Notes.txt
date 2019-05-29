@@ -1,0 +1,3 @@
+Alias pip to pip3, do same with python to python 3
+
+Look at passport module for node, for creating user login system. 
