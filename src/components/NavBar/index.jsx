@@ -1,33 +1,64 @@
 ﻿import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import {
+	Collapse,
+	Navbar,
+	NavbarToggler,
+	NavbarBrand,
+	Nav,
+	NavItem,
+	NavLink,
+	UncontrolledDropdown,
+	DropdownToggle,
+	DropdownMenu,
+	DropdownItem
+} from 'reactstrap';
 import styles from './navbar.module.css';
 
 class NavbarPage extends Component {
+	constructor(props) {
+		super(props);
+
+		this.toggle = this.toggle.bind(this);
+		this.state = {
+			isOpen: false
+		};
+	}
+	toggle() {
+		this.setState({
+			isOpen: !this.state.isOpen
+		});
+	}
 	render() {
 		return (
 			<React.Fragment>
 				<div className={styles.skipLink}>
 					<a href="#mainContent">Skip to Main Content</a>
 				</div>
-				<Navbar collapseOnSelect expand="sm" variant="dark" className={styles.navBG}>
-					<Navbar.Brand href="Home">Home Control</Navbar.Brand>
-					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
-					<Navbar.Collapse id="responsive-navbar-nav">
-						<Nav className="mr-auto" />
-						<Nav className="navbar-expand-sm">
-							<Nav.Link href="Home" active>
-								Home
-							</Nav.Link>
-							<Nav.Link href="Dashboard" active>
-								Dashboard
-							</Nav.Link>
-							<NavDropdown title="Profile" id="collasible-nav-dropdown" active>
-								<NavDropdown.Item href="#">Edit</NavDropdown.Item>
-								<NavDropdown.Item href="#">Sign In</NavDropdown.Item>
-							</NavDropdown>
-						</Nav>
-					</Navbar.Collapse>
-				</Navbar>
+				<div>
+					<Navbar className={styles.navBG} dark expand="sm">
+						<NavbarBrand href="Home">Home Control</NavbarBrand>
+						<NavbarToggler onClick={this.toggle} />
+						<Collapse isOpen={this.state.isOpen} navbar>
+							<Nav className="ml-auto" navbar>
+								<NavItem active>
+									<NavLink href="Home">Home</NavLink>
+								</NavItem>
+								<NavItem active>
+									<NavLink href="Dashboard">Dashboard</NavLink>
+								</NavItem>
+								<UncontrolledDropdown nav inNavbar active>
+									<DropdownToggle nav caret>
+										Profile
+									</DropdownToggle>
+									<DropdownMenu right style={{ minWidth: '0rem' }}>
+										<DropdownItem>Edit</DropdownItem>
+										<DropdownItem>Sign In</DropdownItem>
+									</DropdownMenu>
+								</UncontrolledDropdown>
+							</Nav>
+						</Collapse>
+					</Navbar>
+				</div>
 			</React.Fragment>
 		);
 	}

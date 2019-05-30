@@ -20,8 +20,13 @@ footer {
 .btn-primary {
 	background-color: #025fce !important;
 }
+
 /* .navbar {
 	background-color: #41b3a3 !important;
+}
+
+.dropdown-menu {
+	min-width: 0rem !important;
 } */
 
 button:focus,
