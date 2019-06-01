@@ -12,13 +12,18 @@ import {
 	DropdownMenu,
 	DropdownItem
 } from 'reactstrap';
+import Login from '../Login';
 import styles from './navbar.module.css';
+import fire from '../../config/Fire';
 
 class NavbarPage extends Component {
 	constructor(props) {
 		super(props);
+		this.login = React.createRef();
 
+		this.toggleLogin = this.toggleLogin.bind(this);
 		this.toggle = this.toggle.bind(this);
+		this.logout = this.logout.bind(this);
 		this.state = {
 			isOpen: false
 		};
@@ -28,6 +33,16 @@ class NavbarPage extends Component {
 			isOpen: !this.state.isOpen
 		});
 	}
+
+	toggleLogin() {
+		this.login.current.toggle();
+	}
+
+	logout() {
+		console.log('LOGOUT!');
+		fire.auth().signOut();
+	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -52,12 +67,17 @@ class NavbarPage extends Component {
 									</DropdownToggle>
 									<DropdownMenu right style={{ minWidth: '0rem' }}>
 										<DropdownItem>Edit</DropdownItem>
-										<DropdownItem>Sign In</DropdownItem>
+										<DropdownItem onClick={this.toggleLogin}>Sign In</DropdownItem>
+										<DropdownItem divider />
+										<DropdownItem onClick={this.logout}>Logout</DropdownItem>
 									</DropdownMenu>
 								</UncontrolledDropdown>
 							</Nav>
 						</Collapse>
 					</Navbar>
+				</div>
+				<div>
+					<Login ref={this.login} />
 				</div>
 			</React.Fragment>
 		);

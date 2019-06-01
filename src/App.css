@@ -21,6 +21,13 @@ footer {
 	background-color: #025fce !important;
 }
 
+.modal-content {
+	background: rgb(255, 255, 255) !important;
+}
+.modal-backdrop.show {
+	opacity: 0 !important;
+}
+
 /* .navbar {
 	background-color: #41b3a3 !important;
 }

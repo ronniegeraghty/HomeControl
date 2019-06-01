@@ -24,7 +24,7 @@ class App extends Component {
 
 	authListener() {
 		fire.auth().onAuthStateChanged((user) => {
-			console.log(user);
+			//console.log(user);
 			if (user) {
 				this.setState({ user });
 				//localStorage.setItem('user', user.uid);
@@ -39,7 +39,6 @@ class App extends Component {
 		return (
 			<React.Fragment>
 				<NavBar />
-				{this.state.user ? <Home /> : <Login />}
 				<Switch>
 					<Redirect exact path="/" to="/Home" />
 					<Route path="/Home" component={Home} />
@@ -52,3 +51,7 @@ class App extends Component {
 }
 
 export default App;
+
+/* {this.state.user ? <Home /> : <Login />}
+				{console.log('USER:')}
+				{console.log(this.state.user)} */
